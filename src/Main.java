@@ -72,7 +72,7 @@ public class Main extends Canvas{
 		
 		Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
 
-		g.setColor(Color.black);
+		g.setColor(Color.gray);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		g.dispose();
