@@ -67,21 +67,21 @@ public class GenerateMap {
 
 			for(int blockY = 0; blockY < 16; blockY++){
 				for(int mapNum = 0; mapNum < 5; mapNum++){
-					for(int fullWidth = 0; fullWidth < 20; fullWidth++){
+					for(int blockX = 0; blockX < 20; blockX++){
 						if(mapNum == 0){
-							fullMap[mapNum*20+fullWidth][16*blockRow+blockY] = mapOne[fullWidth][blockY];
+							fullMap[mapNum*20+blockX][16*blockRow+blockY] = mapOne[blockX][blockY];
 						}
 						if(mapNum == 1){
-							fullMap[mapNum*20+fullWidth][16*blockRow+blockY] = mapTwo[fullWidth][blockY];
+							fullMap[mapNum*20+blockX][16*blockRow+blockY] = mapTwo[blockX][blockY];
 						}
 						if(mapNum == 2){
-							fullMap[mapNum*20+fullWidth][16*blockRow+blockY] = mapThree[fullWidth][blockY];
+							fullMap[mapNum*20+blockX][16*blockRow+blockY] = mapThree[blockX][blockY];
 						}
 						if(mapNum == 3){
-							fullMap[mapNum*20+fullWidth][16*blockRow+blockY] = mapFour[fullWidth][blockY];
+							fullMap[mapNum*20+blockX][16*blockRow+blockY] = mapFour[blockX][blockY];
 						}
 						if(mapNum == 4){
-							fullMap[mapNum*20+fullWidth][16*blockRow+blockY] = mapFive[fullWidth][blockY];
+							fullMap[mapNum*20+blockX][16*blockRow+blockY] = mapFive[blockX][blockY];
 						}
 					}
 				}
@@ -114,7 +114,7 @@ public class GenerateMap {
 
 			map = new int[width][height];
 			//System.out.println(reader.readLine());
-			for(int y = 0; y < height-1; y++) {
+			for(int y = 0; y < height; y++) {
 				String line = reader.readLine();
 				//System.out.println(line);
 				String[] lineArrLoop = line.split("");
