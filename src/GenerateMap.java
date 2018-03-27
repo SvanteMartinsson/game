@@ -140,6 +140,10 @@ public class GenerateMap {
 		}	
 
 	}
+	
+	public int[][] getMap(){
+		return fullMap;
+	}
 
 
 
