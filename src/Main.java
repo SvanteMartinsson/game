@@ -5,7 +5,7 @@ import java.awt.image.BufferStrategy;
 
 public class Main extends Canvas{
 	
-	
+	private GenerateMap genMap;
 	
 	// Window variables
 	static final int WIDTH = 1024;
@@ -24,6 +24,7 @@ public class Main extends Canvas{
 		Window window = new Window(WIDTH, HEIGHT, title, this);
 		this.createBufferStrategy(3);
 		buffer = this.getBufferStrategy();
+		genMap = new GenerateMap();
 		gameLoop();
 	}
 
