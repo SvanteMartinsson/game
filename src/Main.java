@@ -28,6 +28,7 @@ public class Main extends Canvas{
 	}
 
 	public static void main(String[] args) {
+
 		new Main();
 	}
 	
@@ -42,6 +43,7 @@ public class Main extends Canvas{
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
 			lastTime = now;
+
 
 			while(delta >=1){
 				update();
