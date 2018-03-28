@@ -19,45 +19,13 @@ public class GenerateMap {
 	public void generateRandom(){
 		for(int i = 0; i < 5; i++){
 			for(int y = 0; y < 5; y++){
-				int num = ran.nextInt(2) + 1;
+				int num = ran.nextInt(3) + 1;
 				mapGenArr[i][y] = num;
 				System.out.print(mapGenArr[i][y]);
 			}
 			System.out.println();
 		}
 
-
-		/*for(int i = 0; i < 5; i++){
-			int[][] mapOne = loadFromTextFile(Integer.toString(mapGenArr[i][0]));
-			int[][] mapTwo = loadFromTextFile(Integer.toString(mapGenArr[i][1]));
-			int[][] mapThree = loadFromTextFile(Integer.toString(mapGenArr[i][2]));
-			int[][] mapFour = loadFromTextFile(Integer.toString(mapGenArr[i][3]));
-			int[][] mapFive =loadFromTextFile(Integer.toString(mapGenArr[i][4]));
-			for(int h = 0; h < 5; h++){
-				for(int z = 0; z < 16; z++){
-					for(int k = 0; k < 20; k++){
-						System.out.println(k);
-						if(h == 0){
-							fullMap[k][z] = mapOne[k][z];
-						}
-						if(h == 1){
-							fullMap[k][z] = mapTwo[k][z];
-						}
-						if(h == 2){
-							fullMap[k][z] = mapThree[k][z];
-						}
-						if(h == 3){
-							fullMap[k][z] = mapFour[k][z];
-						}
-						if(h == 4){
-							fullMap[k][z] = mapFive[k][z];
-						}
-
-
-					}
-				}
-			}	
-		}*/
 		for(int blockRow = 0; blockRow < 5; blockRow++){
 			int[][] mapOne = loadFromTextFile(Integer.toString(mapGenArr[blockRow][0]));
 			int[][] mapTwo = loadFromTextFile(Integer.toString(mapGenArr[blockRow][1]));
@@ -104,31 +72,18 @@ public class GenerateMap {
 
 		try {
 			reader = new BufferedReader(new FileReader("Maps/" + fileName));	
-			//String lineOne = reader.readLine();
-			//String[] lineArr = lineOne.split(":");
-			//this.width = Integer.parseInt(lineArr[0]);
-			//this.height = Integer.parseInt(lineArr[1]);
 
 			int width = 20;
 			int height = 16;
 
 			map = new int[width][height];
-			//System.out.println(reader.readLine());
 			for(int y = 0; y < height; y++) {
 				String line = reader.readLine();
-				//System.out.println(line);
 				String[] lineArrLoop = line.split("");
 				for(int x = 0; x < width; x++) {
 					map[x][y] = Integer.parseInt(lineArrLoop[x]);
 				}
 			}
-
-			/*for(int i = 0; i < 16-1; i++){
-				for(int y = 0; y < 20; y++){
-					System.out.print(map[y][i]);
-				}
-				System.out.println();
-			}*/
 
 			reader.close();
 

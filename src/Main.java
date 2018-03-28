@@ -6,10 +6,12 @@ import java.awt.image.BufferStrategy;
 public class Main extends Canvas{
 	
 	private GenerateMap genMap;
+	private Handler handler;
+	private HUD hud;
 	
 	// Window variables
-	static final int WIDTH = 1024;
-	static final int HEIGHT = 768;
+	static final int WIDTH = 1000;
+	static final int HEIGHT = 820;
 	static final String title = "Game";
 
 
@@ -20,11 +22,12 @@ public class Main extends Canvas{
 	
 	public Main(){
 		isRunning = true;
-			
+		hud = new HUD(WIDTH, HEIGHT);
 		Window window = new Window(WIDTH, HEIGHT, title, this);
 		this.createBufferStrategy(3);
 		buffer = this.getBufferStrategy();
 		genMap = new GenerateMap();
+		handler = new Handler(hud, genMap);
 		gameLoop();
 	}
 
@@ -75,6 +78,7 @@ public class Main extends Canvas{
 
 		g.setColor(Color.gray);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
+		handler.render(g);
 		
 		g.dispose();
 		buffer.show();
