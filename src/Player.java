@@ -8,10 +8,13 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
-public class Player extends dynamicObject implements KeyListener{
+public class Player extends DynamicObject implements KeyListener{
 
 	private boolean playerOne;
+	private boolean holdingCrown;
+	private Image crownImg;
 
 	// 1 = idle, 2 = running left, 3 = running right, 4 = running up, 5 = running down
 	private int state;
@@ -22,6 +25,8 @@ public class Player extends dynamicObject implements KeyListener{
 		this.playerOne = playerOne;
 		state = 1;
 		speed = 1;
+		holdingCrown = false;
+		crownImg = new ImageIcon("Resources/crownSheet.png").getImage();
 
 		if(playerOne || !playerOne){
 			try {
@@ -47,6 +52,10 @@ public class Player extends dynamicObject implements KeyListener{
 			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 30, 10, 40, null);
 		}else if(state == 5){
 			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 0, 10, 10, null);
+		}
+
+		if(holdingCrown){
+			g.drawImage(crownImg, (int)x + 1, (int)y-10, 8, 8, null);
 		}
 
 	}
