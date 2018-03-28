@@ -7,6 +7,7 @@ public class Handler {
 	private GenerateMap map;
 	private MapHandler mapHandler;
 	private boolean mapDrawn = false;
+	private Crown crown;
 	
 	public Handler(HUD hud, GenerateMap map) {
 		this.map = map;
@@ -14,6 +15,7 @@ public class Handler {
 		mapHandler = new MapHandler();
 		playerOne = new Player(null, 100, 100, true);
 		playerTwo = new Player(null, 600, 600, false);
+		crown = new Crown(null, 10, 10);
 	}
 	
 	public void render(Graphics2D g){
@@ -24,11 +26,13 @@ public class Handler {
 		hud.render(g);
 		playerOne.render(g);
 		playerTwo.render(g);
+		crown.render(g);
 		
 	}
 	public void update(){
 		playerOne.update();
 		playerTwo.update();
+		crown.update();
 	}
 	
 	public Player getPlayerOne(){

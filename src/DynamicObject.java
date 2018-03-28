@@ -1,8 +1,8 @@
 import java.awt.Image;
 
-public abstract class dynamicObject extends object {
+public abstract class DynamicObject extends Object {
 
-	public dynamicObject(Image image, double x, double y) {
+	public DynamicObject(Image image, double x, double y) {
 		super(image, x, y);
 	}
 
