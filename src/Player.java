@@ -1,5 +1,6 @@
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -149,5 +150,30 @@ public class Player extends DynamicObject implements KeyListener{
 		}
 
 	}
+	
+	public Rectangle getUpRect() {
+		int x = (int) this.x;
+		int y = (int) this.y;
+		return new Rectangle(x+1,y+7,8,1);
+	}
+	
+	public Rectangle getDownRect() {
+		int x = (int) this.x;
+		int y = (int) this.y;
+		return new Rectangle(x+1,y+9,8,1);
+	}
+	
+	public Rectangle getLeftRect() {
+		int x = (int) this.x;
+		int y = (int) this.y;
+		return new Rectangle(x,y+8,1,1);
+	}
+	
+	public Rectangle getRightRect() {
+		int x = (int) this.x;
+		int y = (int) this.y;
+		return new Rectangle(x+9,y+8,1,1);
+	}
+	
 
 }

@@ -32,7 +32,9 @@ public class Handler {
 	public void update(){
 		playerOne.update();
 		playerTwo.update();
+		playerCollision();
 		crown.update();
+
 	}
 	
 	public Player getPlayerOne(){
@@ -43,4 +45,21 @@ public class Handler {
 		return playerTwo;
 	}
 
+	public void playerCollision() {
+		for(int i = 0; i <mapHandler.getRectList(map).size(); i++) {
+			if(playerOne.getUpRect().intersects(mapHandler.getRectList(map).get(i))) {
+				playerOne.dy = 0;
+			}
+			if(playerOne.getLeftRect().intersects(mapHandler.getRectList(map).get(i))) {
+				playerOne.dx = 0;
+			}
+			if(playerOne.getDownRect().intersects(mapHandler.getRectList(map).get(i))) {
+				playerOne.dy = 0;
+			}
+			if(playerOne.getRightRect().intersects(mapHandler.getRectList(map).get(i))) {
+				playerOne.dx = 0;
+			}
+		}
+	}
+	
 }
