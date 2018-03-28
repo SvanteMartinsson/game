@@ -78,6 +78,8 @@ public class Main extends Canvas{
 	public void render(){
 		
 		Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 		handler.render(g);
 		
 		g.dispose();

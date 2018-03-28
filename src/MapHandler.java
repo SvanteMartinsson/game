@@ -21,10 +21,10 @@ public class MapHandler {
 		
 		for(int x = 0; x < width; x++) {
 			for(int y = 0; y < height; y++) {
-					g.setColor(Color.white);
-					g.fillRect(x*10, y*10, 10, 10);
-					g.setColor(g.getColor().darker());
-					g.drawRect(x*10, y*10, 10, 10);
+					//g.setColor(Color.white);
+					//g.fillRect(x*10, y*10, 10, 10);
+					//g.setColor(g.getColor().darker());
+					//g.drawRect(x*10, y*10, 10, 10);
 				if(newMap[x][y] == blocked) {
 					g.drawImage(wallImg, x*10, y*10, 10, 10, null);
 				}

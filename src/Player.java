@@ -38,6 +38,14 @@ public class Player extends dynamicObject implements KeyListener{
 	public void render(Graphics2D g) {
 		if(state == 1){
 			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 0, 10, 10, null);
+		}else if(state == 2){
+			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 10, 10, 20, null);
+		}else if(state == 3){
+			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 20, 10, 30, null);
+		}else if(state == 4){
+			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 30, 10, 40, null);
+		}else if(state == 5){
+			g.drawImage(bigImg, (int)x, (int)y, (int)x+10, (int)y+10, 0, 0, 10, 10, null);
 		}
 
 	}
@@ -63,28 +71,36 @@ public class Player extends dynamicObject implements KeyListener{
 		if(playerOne){
 			if(key == KeyEvent.VK_W){
 				dy=-1;
+				state = 4;
 			}
 			if(key == KeyEvent.VK_S){
 				dy=1;
+				state = 5;
 			}
 			if(key == KeyEvent.VK_D){
 				dx=1;
+				state = 3;
 			}
 			if(key == KeyEvent.VK_A){
 				dx=-1;
+				state = 2;
 			}
 		}else{
 			if(key == KeyEvent.VK_UP){
 				dy=-1;
+				state = 4;
 			}
 			if(key == KeyEvent.VK_DOWN){
 				dy=1;
+				state = 5;
 			}
 			if(key == KeyEvent.VK_RIGHT){
 				dx=1;
+				state = 3;
 			}
 			if(key == KeyEvent.VK_LEFT){
 				dx=-1;
+				state = 2;
 			}
 		}
 	}
