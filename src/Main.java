@@ -28,6 +28,8 @@ public class Main extends Canvas{
 		buffer = this.getBufferStrategy();
 		genMap = new GenerateMap();
 		handler = new Handler(hud, genMap);
+		this.addKeyListener(handler.getPlayerOne());
+		this.addKeyListener(handler.getPlayerTwo());
 		
 		gameLoop();
 	}
@@ -76,6 +78,8 @@ public class Main extends Canvas{
 	public void render(){
 		
 		Graphics2D g = (Graphics2D) buffer.getDrawGraphics();
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 		handler.render(g);
 		
 		g.dispose();
@@ -83,7 +87,7 @@ public class Main extends Canvas{
 	}
 	
 	public void update(){		
-		
+		handler.update();
 	}
 
 }

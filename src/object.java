@@ -1,3 +1,4 @@
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 public abstract class object {
@@ -12,7 +13,7 @@ public abstract class object {
 		this.y = y;
 	}
 	
-	public abstract void render();
+	public abstract void render(Graphics2D g);
 	
 	public abstract void update();
 	

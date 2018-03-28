@@ -21,9 +21,7 @@ public class GenerateMap {
 			for(int y = 0; y < 5; y++){
 				int num = ran.nextInt(3) + 1;
 				mapGenArr[i][y] = num;
-				System.out.print(mapGenArr[i][y]);
 			}
-			System.out.println();
 		}
 
 		for(int blockRow = 0; blockRow < 5; blockRow++){
@@ -54,14 +52,6 @@ public class GenerateMap {
 					}
 				}
 			}
-		}
-
-
-		for(int i = 0; i < 80; i++){
-			for(int y = 0; y < 100; y++){
-				System.out.print(fullMap[y][i]);
-			}
-			System.out.println();
 		}
 
 	}
