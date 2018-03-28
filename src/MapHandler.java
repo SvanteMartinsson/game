@@ -37,7 +37,7 @@ public class MapHandler {
 		}
 	}
 	
-	public ArrayList<Rectangle> getRect(GenerateMap map) {
+	public ArrayList<Rectangle> getRectList(GenerateMap map) {
 		return rectList;
 		
 	}
