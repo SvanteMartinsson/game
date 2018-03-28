@@ -74,7 +74,6 @@ public class Player extends dynamicObject implements KeyListener{
 				dx=-1;
 			}
 		}else{
-			System.out.println("playerTwo pressed");
 			if(key == KeyEvent.VK_UP){
 				dy=-1;
 			}
