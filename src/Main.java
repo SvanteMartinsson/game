@@ -85,7 +85,7 @@ public class Main extends Canvas{
 	}
 	
 	public void update(){		
-		
+		handler.update();
 	}
 
 }
