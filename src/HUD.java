@@ -21,15 +21,15 @@ public class HUD {
 	}
 
 	public void render(Graphics2D g) {
-		if(!HUDDrawn) {
+		//if(!HUDDrawn) {
 			g.setColor(new Color(0,0,0,0x75));
 			g.fillRect(width/4, 0, width/2, height/20);
 			g.setColor(Color.green);
 			g.drawRect(width/4, 0, width/8, height/20);
 			g.drawRect((width/8)*3, 0, width/4, height/20);
 			g.drawRect((width/8)*5, 0, width/8, height/20);
-			HUDDrawn = true;
-		}
+			//HUDDrawn = true;
+		//}
 		g.setColor(Color.green);
 		g.drawString(pOneScore, (width/16)*5, height/30);
 		g.drawString(pTwoScore, (width/16)*11, height/30);

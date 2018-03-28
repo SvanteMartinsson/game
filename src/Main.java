@@ -28,6 +28,8 @@ public class Main extends Canvas{
 		buffer = this.getBufferStrategy();
 		genMap = new GenerateMap();
 		handler = new Handler(hud, genMap);
+		this.addKeyListener(handler.getPlayerOne());
+		this.addKeyListener(handler.getPlayerTwo());
 		
 		gameLoop();
 	}

@@ -1,7 +1,8 @@
 import java.awt.Graphics2D;
 
 public class Handler {
-	private Player player;
+	private Player playerOne;
+	private Player playerTwo;
 	private HUD hud;
 	private GenerateMap map;
 	private MapHandler mapHandler;
@@ -11,20 +12,31 @@ public class Handler {
 		this.map = map;
 		this.hud = hud;
 		mapHandler = new MapHandler();
-		player = new Player(null, 100, 100, true);
+		playerOne = new Player(null, 100, 100, true);
+		playerTwo = new Player(null, 600, 600, false);
 	}
 	
 	public void render(Graphics2D g){
-		if(!mapDrawn) {
+		//if(!mapDrawn) {
 		mapHandler.drawMap(g, map);
-		mapDrawn = true;
-		}
+		//mapDrawn = true;
+		//}
 		hud.render(g);
-		player.render(g);
+		playerOne.render(g);
+		playerTwo.render(g);
 		
 	}
 	public void update(){
-		player.update();
+		playerOne.update();
+		playerTwo.update();
+	}
+	
+	public Player getPlayerOne(){
+		return playerOne;
+	}
+	
+	public Player getPlayerTwo(){
+		return playerTwo;
 	}
 
 }
