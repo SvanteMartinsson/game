@@ -19,7 +19,7 @@ public class GenerateMap {
 	public void generateRandom(){
 		for(int i = 0; i < 5; i++){
 			for(int y = 0; y < 5; y++){
-				int num = ran.nextInt(3) + 1;
+				int num = ran.nextInt(4) + 1;
 				mapGenArr[i][y] = num;
 			}
 		}

@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -15,9 +16,14 @@ public class Player extends DynamicObject implements KeyListener{
 	private boolean playerOne;
 	private boolean holdingCrown;
 	private Image crownImg;
+	
+	// 0 = W, 1 = A, 2 = D, 3 = S;
+	private boolean[] keysDown;
 
 	// 1 = idle, 2 = running left, 3 = running right, 4 = running up, 5 = running down
 	private int state;
+	
+	
 	private BufferedImage bigImg;
 
 	public Player(Image image, double x, double y, boolean playerOne) {
@@ -27,7 +33,12 @@ public class Player extends DynamicObject implements KeyListener{
 		speed = 1;
 		holdingCrown = false;
 		crownImg = new ImageIcon("Resources/crownSheet.png").getImage();
-
+		
+		keysDown = new boolean[4];
+		for(int i = 0; i<4; i++) {
+			keysDown[i] = false;
+		}
+		
 		if(playerOne || !playerOne){
 			try {
 				bigImg = ImageIO.read(new File("Resources/spritesheetPlayerOne.png"));
@@ -82,35 +93,43 @@ public class Player extends DynamicObject implements KeyListener{
 			if(key == KeyEvent.VK_W){
 				dy=-1;
 				state = 4;
+				keysDown[0] = true;
 			}
 			if(key == KeyEvent.VK_S){
 				dy=1;
 				state = 5;
+				keysDown[3] = true;
 			}
 			if(key == KeyEvent.VK_D){
 				dx=1;
 				state = 3;
+				keysDown[2] = true;
 			}
 			if(key == KeyEvent.VK_A){
 				dx=-1;
 				state = 2;
+				keysDown[1] = true;
 			}
 		}else{
 			if(key == KeyEvent.VK_UP){
 				dy=-1;
 				state = 4;
+				keysDown[0] = true;
 			}
 			if(key == KeyEvent.VK_DOWN){
 				dy=1;
 				state = 5;
+				keysDown[3] = true;
 			}
 			if(key == KeyEvent.VK_RIGHT){
 				dx=1;
 				state = 3;
+				keysDown[2] = true;
 			}
 			if(key == KeyEvent.VK_LEFT){
 				dx=-1;
 				state = 2;
+				keysDown[1] = true;
 			}
 		}
 	}
@@ -124,56 +143,82 @@ public class Player extends DynamicObject implements KeyListener{
 		if(playerOne){
 			if(key == KeyEvent.VK_W){
 				dy=0;
+				keysDown[0] = false;
 			}
 			if(key == KeyEvent.VK_S){
 				dy=0;
+				keysDown[3] = false;
 			}
 			if(key == KeyEvent.VK_D){
 				dx=0;
+				keysDown[2] = false;
 			}
 			if(key == KeyEvent.VK_A){
 				dx=0;
+				keysDown[1] = false;
 			}
 		}else{
 			if(key == KeyEvent.VK_UP){
 				dy=0;
+				keysDown[0] = false;
 			}
 			if(key == KeyEvent.VK_DOWN){
 				dy=0;
+				keysDown[3] = false;
 			}
 			if(key == KeyEvent.VK_RIGHT){
 				dx=0;
+				keysDown[2] = false;
 			}
 			if(key == KeyEvent.VK_LEFT){
 				dx=0;
+				keysDown[1] = false;
 			}
 		}
 
 	}
-	
+
 	public Rectangle getUpRect() {
 		int x = (int) this.x;
 		int y = (int) this.y;
 		return new Rectangle(x+1,y+7,8,1);
 	}
-	
+
 	public Rectangle getDownRect() {
 		int x = (int) this.x;
 		int y = (int) this.y;
 		return new Rectangle(x+1,y+9,8,1);
 	}
-	
+
 	public Rectangle getLeftRect() {
 		int x = (int) this.x;
 		int y = (int) this.y;
 		return new Rectangle(x,y+8,1,1);
 	}
-	
+
 	public Rectangle getRightRect() {
 		int x = (int) this.x;
 		int y = (int) this.y;
 		return new Rectangle(x+9,y+8,1,1);
 	}
-	
+
+	public void playerCollision(GenerateMap map, MapHandler mapHandler) {
+
+
+		for(int i = 0; i <mapHandler.getRectList(map).size(); i++) {
+			if(getUpRect().intersects(mapHandler.getRectList(map).get(i))) {
+				dy = 0;
+			}
+			if(getLeftRect().intersects(mapHandler.getRectList(map).get(i))) {
+				dx = 0;
+			}
+			if(getDownRect().intersects(mapHandler.getRectList(map).get(i))) {
+				dy = 0;
+			}
+			if(getRightRect().intersects(mapHandler.getRectList(map).get(i))) {
+				dx = 0;
+			}
+		}
+	}
 
 }

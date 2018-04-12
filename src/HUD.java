@@ -31,8 +31,8 @@ public class HUD {
 			//HUDDrawn = true;
 		//}
 		g.setColor(Color.green);
-		g.drawString(pOneScore, (width/16)*5, height/30);
-		g.drawString(pTwoScore, (width/16)*11, height/30);
+		//g.drawString(pOneScore, (width/16)*5, height/30);
+	//	g.drawString(pTwoScore, (width/16)*11, height/30);
 
 	}
 
