@@ -31,7 +31,7 @@ public class Player extends DynamicObject implements KeyListener{
 		this.playerOne = playerOne;
 		state = 1;
 		speed = 1;
-		holdingCrown = false;
+		holdingCrown = true;
 		crownImg = new ImageIcon("Resources/crownSheet.png").getImage();
 		
 		keysDown = new boolean[4];
