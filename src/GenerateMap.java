@@ -15,12 +15,27 @@ public class GenerateMap {
 		ran = new Random();
 		generateRandom();
 	}
-
+	
+	
 	public void generateRandom(){
 		for(int i = 0; i < 5; i++){
 			for(int y = 0; y < 5; y++){
-				int num = ran.nextInt(4) + 1;
-				mapGenArr[i][y] = num;
+				
+				// if and else if statements are setting the corner blocks
+				if(i == 0 && y == 0){
+					mapGenArr[0][0] = 10;
+				}else if(i == 0 && y == 4){
+					mapGenArr[0][4] = 13;
+				}else if(i == 4 && y == 0){
+					mapGenArr[4][0] = 11;
+				}else if(i == 4 && y == 4){
+					mapGenArr[4][4] = 12;
+				}else{
+					System.out.println("i = " + i + " y = " + y);
+					int num = ran.nextInt(4) + 1;
+					mapGenArr[i][y] = num;
+				}
+				
 			}
 		}
 
